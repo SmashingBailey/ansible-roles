@@ -1,0 +1,15 @@
+---
+
+#
+##
+# role.skel - Role Skeleton template     
+# 
+# Example Handler block below is from daemon.ssh role
+# Modify Handler block below according to your role
+# Delete Handler block definitions below that are not used in your role
+##
+#
+
+#- name: restart ssh
+#  service: name=ssh state=restarted
+#  become: yes

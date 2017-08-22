@@ -1,0 +1,30 @@
+---
+
+#
+##
+# role.skel - Role Skeleton template     
+# 
+# Example Includes below are from daemon.ssh role
+# Modify Includes below according to your role
+# Delete Include definitions below that are not used in your role
+##
+#
+
+
+  #
+  ## Legend
+  #  + = complete
+  #  ? = pending
+  #  - = exclude/shelve
+  #  ! = manual  
+  #  i = incomplete
+
+  ## ? check if docker is installed and running 
+  - include: docker.yml
+  
+  ## ? check if docker-compose is installed 
+  - include: docker-compose.yml
+
+  ## ? install buildbot using a container  
+  - include: install-buildbot-with-container.yml 
+

@@ -1,0 +1,19 @@
+---
+
+#
+##
+# role.skel - Role Skeleton template  
+# 
+# Example Variables below are from daemon.ssh role
+# Modify Varialbles below according to your role
+# Delete Variable definitions below that are not used in your role
+##
+#
+
+#sshd_port: 22
+#sshd_permit_root_login: 'yes'
+#sshd_password_authentication: 'no'
+#sshd_x11_forwarding: 'no'
+# if need sftp then sftp_only_enabled xor sftp_enabled
+#sshd_sftp_only_enabled: no
+#sshd_sftp_enabled: no

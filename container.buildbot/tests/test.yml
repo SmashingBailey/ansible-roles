@@ -1,0 +1,16 @@
+---
+
+#
+##
+# role.skel - Role Skeleton template     
+# 
+# Example test playbook are from daemon.ssh role
+# Modify Varialbles below according to your role
+# Delete Variable definitions below that are not used in your role
+##
+#
+
+- hosts: test-fabric 
+  remote_user: root
+  roles:
+    - container.buildbot 

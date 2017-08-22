@@ -1,0 +1,51 @@
+---
+
+#
+##
+# role.skel - Role Skeleton template     
+# 
+# Example Logic Block "block, rescue, always" Ansible Logic is built in
+# Meant to emulate Java "try catch" logic block
+# Modify Logic Block according to your role
+# Delete Variable definitions below that are not used in your role
+##
+#
+
+- block:
+  - name: check if docker-compose is installed 
+    shell: dpkg-query -l 'docker-compose' 
+    when: ansible_os_family == "Debian"
+    register: output
+
+  - debug: var=output
+    when: playbook_debug
+
+  - assert:
+      that:
+        - output.stdout != "" 
+
+  rescue:
+  - name: Installing packages
+    action: "{{ ansible_pkg_mgr }} pkg={{ item }} state=present"
+    with_items:
+    - python-setuptools
+
+  - name: Installing dependencies
+    easy_install:
+      name: pip
+
+  - name: Installing docker compose
+    pip:
+      name: docker-compose
+      version: "{{ docker_compose_version if docker_compose_version else omit }}"
+      state: present
+
+  always:
+  - name: test docker is happy in your environment
+    become: sudo
+    command: docker run -i busybox /bin/echo Success
+    when: ansible_os_family == "Debian"
+    register: output
+
+  - debug: var=output
+    when: playbook_debug

@@ -1,0 +1,26 @@
+---
+
+#
+##
+# role.skel - Role Skeleton template     
+# 
+# Example Meta block are from daemon.ssh role
+# Modify Meta block below according to your role
+# ALL Roles must define a "Meta" Block
+##
+#
+
+dependencies: []
+
+galaxy_info:
+  author: smashingeric
+  description: Automated SSH Configuration Management
+  company: "Troux Systems, LLC"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.2
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 16.04 LTS
+  galaxy_tags:
+    - os

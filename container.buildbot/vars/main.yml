@@ -1,0 +1,22 @@
+---
+
+#
+##
+# role.skel - Role Skeleton template     
+# 
+# Example Variables below are from daemon.ssh role
+# Modify Varialbles below according to your role
+# Delete Variable definitions below that are not used in your role
+#
+# Note this Variable file is meant for use with "private" variables
+# (ie. passwords, usernames, and/or auth keys)
+##
+#
+
+playbook_debug: yes
+
+home: "{{ lookup('env', 'HOME') }}"
+username: "{{ lookup('pipe', 'whoami') }}"
+
+admin_groupname: toor
+
